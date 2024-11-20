@@ -1,6 +1,9 @@
 import { Elysia, t } from "elysia";
 import { findLongUrl, shortenerUrl } from "./features/url/url.service";
 import { UrlSchema } from "./features/url/url.model";
+import { dbConnect } from "./libs/mongoose/dbConnect";
+
+dbConnect();
 
 const app = new Elysia()
   .get("/", () => "")
