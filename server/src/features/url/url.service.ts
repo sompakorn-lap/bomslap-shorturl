@@ -28,7 +28,9 @@ export async function shortenerUrl(longUrl: string) {
 }
 
 export async function findLongUrl(shortUrl: string) {
-  const available = await Url.findOne({ shortUrl }).lean().exec();
+  const baseUrl = process.env.BASE_URL as string;
+
+  const available = await Url.findOne({ shortUrl: `${baseUrl}/${shortUrl}` }).lean().exec();
   if(!available)
     throw error(404);
 
