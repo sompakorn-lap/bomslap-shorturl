@@ -1,0 +1,13 @@
+{
+  "name": "bomslap-shorturl",
+  "version": "1.0.0",
+  "author": "BOM S. LAP",
+  "license": "ISC",
+  "description": "Shortener URL website produced by Bun, Elysia, MongoDB, React, Typescript",
+  "scripts": {
+    "start": "cd server && bun start",
+    "build:server": "cd server && bun run build",
+    "build:client": "cd client && bun run build",
+    "build": "bun run build:server && bun run build:client"
+  }
+}

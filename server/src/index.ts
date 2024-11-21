@@ -2,11 +2,16 @@ import { Elysia, t } from "elysia";
 import { findLongUrl, shortenerUrl } from "./features/url/url.service";
 import { UrlSchema } from "./features/url/url.model";
 import { dbConnect } from "./libs/mongoose/dbConnect";
+import staticPlugin from "@elysiajs/static";
 
 dbConnect();
 
 const app = new Elysia()
-  .get("/", () => "Hello World")
+  .use(staticPlugin({
+    assets: "../client/dist",
+    prefix: "/"
+  }))
+  .get("/", () => Bun.file("../client/dist/index.html"))
   .post("/api", async ({ body: { longUrl } }) => 
     await shortenerUrl(longUrl), 
   {
