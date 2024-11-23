@@ -34,21 +34,21 @@ function App() {
   }
 
   return (
-    <section>
+    <main>
       
-      <div>
+      <section>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input placeholder="Enter your url" {...register("longUrl")}/>
           <button type="submit">generate</button>
         </form>
-      </div>
+      </section>
 
-      <div>
-        <p>{shortUrl}</p>
+      <section>
+        <input value={shortUrl} readOnly/>
         <button onClick={copyUrl}>copy</button>
-      </div>
+      </section>
 
-    </section>
+    </main>
   );
 }
 
