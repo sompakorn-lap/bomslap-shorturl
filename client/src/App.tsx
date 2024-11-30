@@ -34,18 +34,45 @@ function App() {
   }
 
   return (
-    <main>
+    <main className="w-screen min-h-screen bg-slate-300">
+
+      <section className="w-full py-2 bg-teal-500 flex">
+        <h1 className="text-xl mx-auto text-gray-50">BomSLap - Short URL</h1>
+      </section>
       
-      <section>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input placeholder="Enter your url" {...register("longUrl")}/>
-          <button type="submit">generate</button>
+      <section className="w-full my-5">
+        <form
+          className="w-full flex flex-col"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <input
+            className="px-4 py-2 border-dashed border-4 border-teal-500 w-4/5 rounded-md mx-auto my-2 focus:ring-0 focus:outline-0"
+            placeholder="Enter your url"
+            {...register("longUrl")}
+          />
+          <button
+            className="px-4 py-2 border-dashed border-4 border-gray-50 w-4/5 rounded-md mx-auto my-2 bg-teal-500 text-gray-50"
+            type="submit"
+          >
+            GENERATE
+          </button>
         </form>
       </section>
 
-      <section>
-        <input value={shortUrl} readOnly/>
-        <button onClick={copyUrl}>copy</button>
+      <section className="w-full my-5">
+        <div className="w-full flex flex-col">
+          <input
+            className="px-4 py-2 border-dashed border-4 border-teal-500 w-4/5 rounded-md mx-auto my-2 focus:ring-0 focus:outline-0"
+            value={shortUrl}
+            readOnly
+          />
+          <button
+            className="px-4 py-2 border-dashed border-4 border-gray-50 w-4/5 rounded-md mx-auto my-2 bg-teal-500 text-gray-50"
+            onClick={copyUrl}
+          >
+            COPY
+          </button>
+        </div>
       </section>
 
     </main>
